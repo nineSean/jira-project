@@ -20,13 +20,19 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "husky install",
+    "mock": "json-server --watch ./__mock__/db.json"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "prettier"
     ]
+  },
+  "lint-staged": {
+    "src/**/*.{js, css, md, ts, tsx}": "prettier --write --ignore-unknown"
   },
   "browserslist": {
     "production": [
@@ -39,5 +45,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "eslint-config-prettier": "^8.3.0",
+    "husky": "^6.0.0",
+    "json-server": "^0.16.3",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.1"
   }
 }
